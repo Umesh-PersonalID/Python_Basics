@@ -131,6 +131,7 @@ print("\nIs 'racecar' a palindrome?", is_palindrome("racecar"))  # True
 # ------------------------------------------------
 # ✅ Always define a base case to avoid infinite recursion.
 # ✅ Python has a recursion depth limit (~1000 by default):
+
 import sys
 print("\nRecursion limit:", sys.getrecursionlimit())
 
@@ -163,3 +164,20 @@ print("Iterative factorial:", factorial_iter(5))
 # - Can be slow without memoization.
 # - Excellent for tree/graph problems, combinatorics, and divide & conquer.
 # - Watch out for recursion depth and use memoization/tail recursion wisely.
+
+
+
+#Reverse the array using recursion
+
+l1 = [1,2,3,4,5,6,7,8,9]
+
+n = len(l1)-1
+def fun(n,i):
+    if i < n//2:
+        return
+    l1[i],l1[n-i] = l1[n-i],l1[i]
+    fun(n,i-1)
+    return 
+
+fun(n,n)
+print(l1)
