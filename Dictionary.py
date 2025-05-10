@@ -96,4 +96,4 @@ flipped = {v: k for k, v in d.items()}  # {1: 'a', 2: 'b'}
 filtered = {k: v for k, v in d.items() if v > 1}  # {'b': 2}  
 
 
-
+flipped = {v: k for k, v in d1.items()}

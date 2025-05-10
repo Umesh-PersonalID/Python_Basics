@@ -72,27 +72,6 @@ print("Subtract:", a - b)  # Only positive counts kept
 # Tip: Useful for frequency analysis, word counts, etc.
 
 
-# -------------------------------
-# 4. collections.OrderedDict (Only relevant < Python 3.7)
-# -------------------------------
-from collections import OrderedDict
-
-# Summary:
-# OrderedDict remembers the insertion order of keys (same as dict in Python 3.7+)
-
-od = OrderedDict()
-od['first'] = 1
-od['second'] = 2
-od['third'] = 3
-
-print("OrderedDict:", od)
-
-# Method: move_to_end
-od.move_to_end('first')  # Moves key to end
-print("Moved key:", od)
-
-# Tip: Only use if you need compatibility with Python < 3.7.
-
 
 # -------------------------------
 # 5. heapq (min-heap priority queue)
