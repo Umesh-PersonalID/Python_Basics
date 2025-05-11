@@ -9,3 +9,5 @@ gretting+=' World'
 print(gretting)
 
 
+#python is compiled and interpreted language
+

@@ -1,0 +1,4 @@
+Hello, Umesh!
+Welcome to file handling.
+Python is fun.
+Appended line 3
