@@ -101,6 +101,43 @@ print(c is d)  # False (longer strings usually not interned)
 # - Don't rely on 'is' for string comparison, use '=='
 
 
+#string Traversal
+s = "Python"
+for char in s:
+    print(char, end='\n')  # P y t h o n
+
+
+
+
+#count words in a string
+def count_words(s):
+    words = s.split()
+    return len(words)
+
+
+s = "Hello world, this is a test string."
+count = 0
+for char in s:
+    if char == " ":
+        count += 1
+    pass
+print(count+1)  # 6 (number of spaces, not words)
+print(count_words(s))  #7 (number of words in the string)
+
+
+#Find duplicate characters in a string
+
+s = "hello world"
+visit = [0]*128
+def find_duplicates(s):
+    for char in s:
+        if visit[ord(char)] == 1:
+            print("Duplicate character found: ", char)
+        else:
+            visit[ord(char)] = 1
+find_duplicates(s)  # Duplicate character found:  l
+    
+
 
 def fibo(n):
     if n == 0 or n == 1:
@@ -112,6 +149,7 @@ n = 20 # This means summing from 0 to 7
 fibo(n)
 print(fibo(n))  # 6765 (20th Fibonacci number)
 
+i=0
 def ncr(n,r):
     global i 
     if r == 1:
@@ -119,6 +157,6 @@ def ncr(n,r):
     i+=1
     return ncr(n-1,r-1)*(n/r)
 
-n = 6
-r = 3
+n = 5
+r = 2
 print(ncr(n,r))  # 20 (6 choose 3)

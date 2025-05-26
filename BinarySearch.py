@@ -18,3 +18,26 @@ def binary_search(arr, target):
 target = 10
 result = binary_search(arr, target)
 print(f"Target {target} found at index: {result}" if result != -1 else "Target not found")
+
+
+
+target = 13
+
+# Now recursive binary search
+
+def recursive_binary_search(arr, target, left, right):
+    if left > right:
+        return -1  # Target not found
+    
+    mid = (left + right) // 2
+    if arr[mid] == target:
+        return mid  # Target found
+    elif arr[mid] < target:
+        return recursive_binary_search(arr, target, mid + 1, right)  # Search in the right half
+    else:
+        return recursive_binary_search(arr, target, left, mid - 1)  # Search in the left half
+    
+    
+print("\nRecursive Binary Search:")
+result_recursive = recursive_binary_search(arr, target, 0, len(arr) - 1)    
+print(f"Target {target} found at index: {result_recursive}" if result_recursive != -1 else "Target not found")
