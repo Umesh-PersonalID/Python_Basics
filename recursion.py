@@ -30,10 +30,8 @@ print("Factorial of 5:", factorial(5))  # Output: 120
 # ------------------------------------------------
 def fibonacci(n):
     """Returns the nth Fibonacci number (inefficient)"""
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
+    if n == 0 or n == 1:  # Base case
+        return n
     return fibonacci(n - 1) + fibonacci(n - 2)
 
 print("Fibonacci(6):", fibonacci(6))  # Output: 8
@@ -183,3 +181,56 @@ def fun(n,i):
 
 fun(n,n)
 print(l1)
+
+
+
+
+def nested_fun(n):
+    if n>100:
+        return n-1
+    else:
+        return nested_fun(nested_fun(n + 11))
+
+print(nested_fun(95))
+
+
+def exponent(m,n):
+    if n == 0:
+        return 1
+    elif n < 0:
+        return 1 / exponent(m, -n)
+    else:
+        return m * exponent(m, n - 1) 
+    
+print(exponent(2, -3))  # Output: 8
+
+
+# #TOH
+
+# def TOH(n, source, auxiliary, target):
+#     if n == 1:
+#         print(f"Move disk 1 from {source} to {target}")
+#         return
+#     TOH(n - 1, source, target, auxiliary)
+#     print(f"Move disk {n} from {source} to {target}")
+#     TOH(n - 1, auxiliary, source, target)
+
+# TOH(16, 'A', 'B', 'C')  # A, B, C are the names of the rods
+# # Output:
+
+
+def foo(x_ref, c):
+    c = c - 1
+    x_ref[1] = x_ref[1] + 1
+    if c == 0:
+        return 1
+    x_ref[0] = x_ref[0] + 1
+    print(f"foo({x_ref[0]}, {c})")
+    p = foo(x_ref, c) * x_ref[0]
+    print(p)
+    return p
+
+# x as a reference (list of one element)
+x = [5,6]
+print(foo(x, 5))  # Output will reflect updated x across calls
+print(x[1])

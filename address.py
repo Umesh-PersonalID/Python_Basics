@@ -3,7 +3,7 @@ import math
 #More memory efficient
 a = 10
 b = a
-a = 5
+a = 11
 
 print(b)
 print(a)

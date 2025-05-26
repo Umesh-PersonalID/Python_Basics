@@ -100,3 +100,25 @@ print(c is d)  # False (longer strings usually not interned)
 # imization)
 # - Don't rely on 'is' for string comparison, use '=='
 
+
+
+def fibo(n):
+    if n == 0 or n == 1:
+        return n
+    return fibo(n-1) + fibo(n - 2) 
+
+
+n = 20 # This means summing from 0 to 7
+fibo(n)
+print(fibo(n))  # 6765 (20th Fibonacci number)
+
+def ncr(n,r):
+    global i 
+    if r == 1:
+        return n
+    i+=1
+    return ncr(n-1,r-1)*(n/r)
+
+n = 6
+r = 3
+print(ncr(n,r))  # 20 (6 choose 3)
