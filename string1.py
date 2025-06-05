@@ -160,3 +160,9 @@ def ncr(n,r):
 n = 5
 r = 2
 print(ncr(n,r))  # 20 (6 choose 3)
+
+
+#Check the char is alphabet or not
+
+print(a.isalnum())
+print(' '.isalnum())
