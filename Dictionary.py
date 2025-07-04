@@ -97,3 +97,7 @@ filtered = {k: v for k, v in d.items() if v > 1}  # {'b': 2}
 
 
 flipped = {v: k for k, v in d1.items()}
+
+my_dict = {'apple': 10, 'banana': 2, 'cherry': 7}
+sorted_dict = dict(sorted(my_dict.items(), key=lambda item: item[1], reverse=True))
+print(sorted_dict)

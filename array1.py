@@ -1,12 +1,12 @@
 arr = [10, 20, 30, 40]
 print("Array:", arr)
 
-#array similar to list, all value of same type. 
+#array similar to list, but all value of same type. 
 # Access elements
 print("First element:", arr[0])
 
 # Modify element
-arr[1] = 25
+arr[1] = 5
 print("Modified array:", arr)
 
 # Append new element

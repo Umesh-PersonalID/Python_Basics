@@ -4,7 +4,8 @@ def add(a,b):
 
 def sub(a,b):
     print("I am subtracting")
-print(__name__)
+    print(__name__)
+    pass
 
 
 def main():

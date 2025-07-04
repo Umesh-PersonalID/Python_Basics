@@ -51,7 +51,7 @@ print(-5 >> 1)
 print(5 & 3)   # 1 (0101 & 0011 = 0001)
 
 # LOGICAL (and, or) work on BOOLEANS
-print(5 and 3 and 6 and 7 and 0 and 6) # 3 (returns last truthy value)
+print(5 and 3 and 6 and 7 and 3 and 6 and 3) # 3 (returns last truthy value)
 
 ### IMPORTANT NOTES:
 # - Bitwise ops have higher precedence than logical ops
