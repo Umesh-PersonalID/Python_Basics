@@ -35,7 +35,8 @@ from collections import defaultdict
 
 dd = defaultdict(int)  # Default value is 0
 dd['apple'] += 1
-dd['banana'] += 2
+dd['banana'] = "4"
+dd['banana'] += "3"
 
 # Can use any factory function: list, set, custom lambda, etc.
 words_by_length = defaultdict(list)

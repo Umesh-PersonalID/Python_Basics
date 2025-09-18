@@ -50,7 +50,7 @@ for row in random_matrix:
 # Matrix addition (assuming matrices have same dimensions)
 A = [[1, 2], [3, 4]]
 B = [[5, 6], [7, 8]]
-C = [[A[i][j] + B[i][j] for j in range(len(A[0]))] for i in range(len(A))]
+C = [[A[i][j] + B[i][j] for i in range(len(A))] for j in range(len(A[0]))]
 print("Matrix addition result:")
 for row in C:
     print(row)

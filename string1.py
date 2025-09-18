@@ -16,6 +16,7 @@ print(s[-1])         # 'n' (last char)
 # Slicing
 print(s[1:4])        # 'yth' → O(k) for slice of size k
 print(s[::-1])       # 'nohtyP' (reverse)
+print(list(s).reverse())
 
 ### IMPORTANT:
 # - Negative indices count from end
