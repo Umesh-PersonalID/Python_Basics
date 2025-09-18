@@ -16,10 +16,8 @@ def extract_data(soup, tag, class_name=None):
         elements = soup.find_all(tag, class_=class_name)
     else:
         elements = soup.find_all(tag)
-    
-    data = [element.get_text(strip=True) for element in elements]
+    data = [element.get_text() for element in elements] if elements else []
     return data
-
 
 # Example usage
 if __name__ == "__main__":
@@ -33,6 +31,6 @@ if __name__ == "__main__":
         print(para)
     
     # Extract all headings with a specific class
-    headings = extract_data(soup, 'h2', class_name='heading-class')
+    headings = extract_data(soup, 'p', class_name='heading-class')
     for heading in headings:
         print(heading)
