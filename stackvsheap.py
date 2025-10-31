@@ -11,141 +11,68 @@ In Python, memory is divided into two main regions:
 Everything in Python is an object, and most data lives on the heap.
 """
 
-# ========== PART 1: STACK MEMORY ==========
+# we can pop last element form list like this
+A = [1,2,3,4,6,5]
+print(A.pop())
 
-def stack_example():
-    # Local variables are stored in stack memory
-    x = 10
-    y = 20
-    result = x + y  # This result is also a local variable
-    return result  # All of these are popped off the stack after function returns
+# we can push last elememt in list like this
+A = [1,2,3,4,5,6]
+A.append(9)
+print(A)
 
-print("Stack Example Result:", stack_example())
-
-# Call stack example (recursive function)
-def factorial(n):
-    # Each call creates a new stack frame with its own `n`
-    if n == 0:
-        return 1
-    else:
-        return n * factorial(n - 1)
-
-print("Factorial(5) using stack recursion:", factorial(5))
+#If we just want to check last element
+print(A[-1])
 
 
-# ========== PART 2: HEAP MEMORY ==========
 
-# Objects like lists, dicts, and classes are stored in the heap.
-a = [1, 2, 3]
-b = a  # `b` points to the same list object in heap
-a.append(4)
+from collections import deque
+stack = deque()
+for i in range(10):
+  stack.append(i*23)
 
-print("\nHeap Example:")
-print("a:", a)  # [1, 2, 3, 4]
-print("b (shares reference):", b)  # [1, 2, 3, 4]
+print(stack.pop())
 
-
-# ========== PART 3: IDENTITY & REFERENCES ==========
-
-x = 500
-y = 500
-print("\nInteger Interning (Heap vs Stack nuance):")
-print("x == y:", x == y)  # True (value check)
-print("x is y:", x is y)  # May be True or False (identity check — points to same object?)
-
-# Immutable objects like integers, strings may be interned
-s1 = "hello"
-s2 = "hello"
-print("s1 is s2 (interned strings):", s1 is s2)  # Likely True
-
-# Mutable objects always live in heap
-list1 = [1, 2]
-list2 = [1, 2]
-print("list1 is list2 (mutable objects):", list1 is list2)  # False
+#this is like peek
+print(stack[-1])
 
 
-# ========== PART 4: FUNCTIONS, OBJECTS, and the HEAP ==========
 
-class Student:
-    def __init__(self, name):
-        self.name = name  # `self` is stored on heap
+#implement stack usign LL
 
-s = Student("Umesh")
-print("\nStudent object stored on heap. Name:", s.name)
-
-
-# ========== PART 5: GARBAGE COLLECTION & MEMORY MANAGEMENT ==========
-
-import sys
-import gc
-
-# Example of reference counting
-print("\nReference Counting:")
-obj = [1, 2, 3]
-print("Initial refcount:", sys.getrefcount(obj))  # Includes local reference in getrefcount()
-alias = obj
-print("After aliasing:", sys.getrefcount(obj))
-
-# For circular references, Python uses garbage collector
 class Node:
-    def __init__(self, val):
-        self.val = val
-        self.next = None
+   def __init__(self,val=0,next=None):
+      self.val = val
+      self.next = next
 
-a = Node(1)
-b = Node(2)
-a.next = b
-b.next = a  # Circular reference
+#stack Class:
 
-# Forcibly collect garbage
-del a
-del b
-gc.collect()
-print("Garbage collector used for cyclic references.")
+class stack:
+   def __init__(self):
+      self.top = None
+    
+   def push(self,val):
+      temp = Node(val)
+      temp.next = self.top
+      self.top = temp
 
-# ========== PART 6: STACK LIMITS ==========
+   def disply(self):
+      temp = self.top
+      while temp:
+         print(temp.val, end="->")
+         temp = temp.next
+         
+      
+s1 = stack()
+s1.push(3)
+s1.push(13)
+s1.push(33)
+s1.push(23)
 
-import sys
+s1.disply()
 
-print("\nStack Recursion Limit:")
-print("Recursion limit:", sys.getrecursionlimit())
 
-# Uncomment below to test stack overflow
-# def recurse_forever():
-#     return recurse_forever()
-# recurse_forever()  # Will crash with RecursionError
 
-"""
-==============================
-💡 KEY NOTES & BEST PRACTICES
-==============================
+    
 
-1. ✅ Stack memory:
-   - Fast, used for function calls, parameters, local variables.
-   - Automatically managed (frame created/popped with calls/returns).
-   - Limited size → Recursion too deep causes RecursionError.
 
-2. ✅ Heap memory:
-   - Slower, stores objects (lists, dicts, custom classes).
-   - Managed by Python using reference counting + garbage collection.
-   - Mutable objects are always heap-allocated.
-
-3. ⚠️ `is` vs `==`:
-   - `is` checks identity (same object in memory).
-   - `==` checks value equality.
-
-4. ⚠️ Memory leaks:
-   - Rare in Python, but can occur with circular references if `__del__` is badly implemented.
-   - Use `gc.collect()` to force cleanup or investigate issues.
-
-5. ✅ Debugging memory:
-   - Use `sys.getrefcount()` to inspect reference count.
-   - Use `gc` module for garbage collection insight.
-
-6. 📌 Immutable objects like integers and strings may be **interned** (reused in memory).
-   - Don’t rely on `is` for such comparisons in production code.
-
-7. 💡 Everything in Python (even `int`) is an object — so most data lives in the heap.
-   - But variable references (names) and stack frames are managed using stack memory.
-"""
 
