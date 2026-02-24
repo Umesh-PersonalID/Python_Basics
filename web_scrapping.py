@@ -1,6 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
 
+
+#what is beautiful soup?
+
+#Beautiful Soup is a Python library used for web scraping purposes to pull the data out of HTML and XML files. It creates a parse tree for parsed pages that can be used to extract data from HTML, which is useful for web scraping. Beautiful Soup provides simple methods and Pythonic idioms for navigating, searching, and modifying the parse tree, making it easy to extract the information you need from web pages.
 def fetch_page(url):
     response = requests.get(url)
     response.raise_for_status()  # Raise an error for bad responses
@@ -34,3 +38,5 @@ if __name__ == "__main__":
     headings = extract_data(soup, 'p', class_name='heading-class')
     for heading in headings:
         print(heading)
+        
+#ambigous meaning if there is 2 or more possible interpretation of same sentence then it is called ambigous meaning.q

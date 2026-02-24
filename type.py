@@ -143,3 +143,16 @@ p = 3
 k = 6
 comp = complex(p,k)
 print(comp)
+
+#everything in python is object and every object has a type and type of object can be checked by using type() function.
+
+#shallow copy vs deep copy
+#shallow copy creates a new object but references the same inner objects, while deep copy creates a new object and recursively copies all inner objects, resulting in completely independent copies.
+
+#exmple of shallow copy
+import copy
+original = [1, 2, [3, 4]]
+shallow_copied = copy.copy(original)
+shallow_copied[2][0] = 'X'
+print("Original:", original)
+print("Shallow copied:", shallow_copied)
